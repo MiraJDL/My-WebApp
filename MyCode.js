@@ -19,7 +19,7 @@ var movie;
 var travel;
 var science;
 var therapy;
-
+var anim;
 var img1;
   var puppyBut;
 var img2;
@@ -33,6 +33,7 @@ var psycologyTitle;
     var canvasDark;
     var bback;
 var i=0;
+var darken = false;
 
 
  function preload(){
@@ -45,22 +46,24 @@ var i=0;
 
 function setup(){
   home();
+  buttonWorks();
 }//end setup
 
 function draw(){
-  buttonWorks();
+  animation();
 } //end draw
 
 
 
 
 function home(){
-  canvas = createCanvas(windowWidth, 3000);
+  canvas = createCanvas(windowWidth, 1200);
   canvas.position(0, 82);
   canvas.style('z-index', '-2');
   background(96, 154, 160);
   intro = "To understand the psycological effects of virtual reality (VR), we have to know what VR is, and how it's used."
   fill(0);
+  strokeWeight(0);
   textFont(myFont, 14);
   text(intro, 2, 22);
 
@@ -75,13 +78,10 @@ function home(){
       textSize(14);
       text(whatPar, 10, 100, windowWidth*0.55);
       text(whatPar2, 10, 205, windowWidth*0.95);
-      animation();
       strokeWeight(0);
       dreamPar = "VR feels a bit like how a dream feels. It feels like it's actually happening, even though it's (potencially) unrealistic."
       fill(0);
       text(dreamPar, windowWidth*0.6+170, 110, 250);
-
-
 
   //how
     howTitle = "How is VR Used?"
@@ -130,7 +130,7 @@ function home(){
   //  img1 = createImage(250, 167);
   //  //image(img1, 200, 300);
 
-}//end home
+}//end home end home end home end home end home end home
 
 
 function buttonWorks(){
@@ -145,9 +145,6 @@ function buttonWorks(){
 }
 
 
-
-
-
 function basicbutton(x,y,name,funct){
   button = createButton(name);
   button.position(x, y);
@@ -159,41 +156,52 @@ function basicbutton(x,y,name,funct){
 //scenerios
 function movies(){
   DarkCanvas();
-  // canvas1 = createCanvas(windowWidth*0.8, windowHeight);
-  // canvas1.position(120, 0);
-  // background(200);
-  // canvas1.style('z-index', '1');
+  darken = true;
+  fill(200);
+  canvas1 = rect(120, 0,  windowWidth*0.8, 1400);
+  var par1 = "You’re super hyped about a new version of a video game titled ‘The Evil Within’. As an early Christmas present your cousin Willie gave you the new Samsung Odyssey VR headset. You’ve played ‘The Evil Within’ before, but not with VR."
+  noStroke();
+  fill(0);
+  text(par1, 150, 60, 400);
+  var par2 = "You get the game to test it out...and it is scary. I mean you actually screamed out loud seven times, and before that the most you screamed was maybe twice. You come away from it shaken."
+  text(par2, 550, 200, 400);
+  var par3 = "As you go about your daily life, you start to become more agitated. You keep thinking about that video game, and all those jump scares. You become anxious and fearful, and you lose interest in things you once found entertaining. Not to mention you completely abandon playing ‘The Evil Within’, or any scary video game for that matter."
+  text(par3, 150, 300, 400);
+  var par4 = "You’re suffering from post traumatic stress disorder."
+  textSize(17);
+  text(par4, 150, 440);
   bback = basicbutton(10, 10, 'back', back);
   bback.style('z-index', '1');
-  //movie.hide();
 }//end movies
 
 
 function DarkCanvas(){
-  canvasDark = rect(600, 600);
-  canvasDark.position(0, 0);
-  background(0, 200);
-  canvasDark.style('z-index', '0');
+  fill(0, 200);
+  canvasDark = rect(0, 0, windowWidth, 1400);
+
 }
 
 
 function back(){
   home();
+  darken = false;
 }
 
 
 
 function showPuppyStuff(){
   image(img1, 100, 720, img1.width/2, img1.height/2);
-  // hide button
   puppyPar = "What emotions came up when you saw the puppy? Were you happy? Did you think it was cute? (If you didn’t, I don’t know what kind of person you are) Now imagine if you got to see the puppy playing, and even got to throw the ball for the puppy. Would that make you happier? If you got to play with this puppy in virtual reality, it would probably make you feel happier than you did by just looking at the picture (unless you are unfeeling demon who hates puppies for some reason)."
+  strokeWeight(0);
+  fill(0);
   text(puppyPar, 30, 900, 400);
 }
 
 function showScaryStuff(){
   image(img2, 700, 720, img2.width/1.5, img2.height/1.5);
-  //hide button
   scaryPar = "What emotions came up when you saw the wolf-monster thing? Were you scared? On edge? Grossed out? Now imagine if you looked to the right and that thing was rushing toward you howling. Would that make you more terrified? If you saw that wolf-monster coming at you in virtual reality, you’d probably freak out, more so than you did by looking at the picture."
+  strokeWeight(0);
+  fill(0);
   text(scaryPar, 650, 910, 400);
 }
 
@@ -202,18 +210,18 @@ function sleepingPerson(){
   strokeWeight(3);
   fill(255);
   noStroke();
-  rect(windowWidth*0.6-12, 150, 30, 18);
-  rect(windowWidth*0.6+10, 146, 18, 20);
+  rect(655-12, 150, 30, 18);
+  rect(655+10, 146, 18, 20);
   stroke(0);
   strokeWeight(3);
-  ellipse(windowWidth*0.6, 130, 50, 50);
-  arc(windowWidth*0.6-10, 130, 10, 10, 0, HALF_PI);
-  arc(windowWidth*0.6+10, 125, 10, 10, 0, HALF_PI);
-  arc(windowWidth*0.6+2, 138, 20, 20, radians(20), radians(120));
-  arc(windowWidth*0.6+15, 177, 75, 75, radians(170), radians(220));
-  arc(windowWidth*0.6, 173, 75, 75, radians(310), radians(18));
+  ellipse(655, 130, 50, 50);
+  arc(655-10, 130, 10, 10, 0, HALF_PI);
+  arc(655+10, 125, 10, 10, 0, HALF_PI);
+  arc(655+2, 138, 20, 20, radians(20), radians(120));
+  arc(655+15, 177, 75, 75, radians(170), radians(220));
+  arc(655, 173, 75, 75, radians(310), radians(18));
   noStroke();
-  rect(windowWidth*0.6-20, 177, 54, 7);
+  rect(655-20, 177, 54, 7);
   stroke(0);
   strokeWeight(3);
 }
@@ -223,22 +231,28 @@ function sleepingPerson(){
 function animation(){
   strokeWeight(3);
   fill(81, 101, 135);
-  rect(windowWidth*0.6-40, 85, 200, 100);
+  rect(655-40, 85, 200, 100);
   sleepingPerson();
       if(i%4 == 1){
        strokeWeight(1);
-       ellipse(windowWidth*0.6+37, 125, 6, 6); //bubble 1
+       ellipse(655+37, 125, 6, 6); //bubble 1
        }
       if(i%4 == 2){
        strokeWeight(1);
-       ellipse(windowWidth*0.6+37, 125, 6, 6); //bubble 1
-       ellipse(windowWidth*0.6+55, 120, 8, 8); //bubble 2
+       ellipse(655+37, 125, 6, 6); //bubble 1
+       ellipse(655+55, 120, 8, 8); //bubble 2
       }
       if(i%4 == 3){
        strokeWeight(1);
-       ellipse(windowWidth*0.6+37, 125, 6, 6); //bubble 1
-       ellipse(windowWidth*0.6+55, 120, 8, 8); //bubble 2
-       ellipse(windowWidth*0.6+110, 120, 80, 50); //thought
+       ellipse(655+37, 125, 6, 6); //bubble 1
+       ellipse(655+55, 120, 8, 8); //bubble 2
+       ellipse(655+110, 120, 80, 50); //thought
       }
       i++;
+
+  if(darken === true){
+    fill(200);
+    noStroke();
+    rect(655-45, 82, 210, 110);
+  }
 }
