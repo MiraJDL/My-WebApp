@@ -1,3 +1,31 @@
+/*
+Title: Click and Know More
+
+Imagined, Designed, and Programmed by: Mira Larrance
+
+Date: 12/13/17
+
+Description: An explorable webapp giving information on virtual reality.
+
+Sources of ideas and inspiration (title, author, URL):
+  -"Applications of Virtual Reality." Virtual Reality Society, 2017, www.vrs.org.uk/
+     virtual-reality-applications/.
+
+  -"The Coming Horror of Virtual Reality." The New Yorker, 15 May 2016,
+     www.newyorker.com/tech/elements/the-coming-horror-of-virtual-reality. 
+
+  -"Why virtual reality could be a mental health Gamechanger." The Guardian, 22
+     Mar. 2017, www.theguardian.com/science/blog/2017/mar/22/
+     why-virtual-reality-could-be-a-mental-health-gamechanger.
+     
+  -http://cutepuppyoftheday.com/post/146150145556/todays-cute-puppy
+  
+  -https://grimimage.blogspot.com/2012/12/scary-werewolf-backgrounds.html
+
+*/
+
+
+
 var canvas;
 var myFont;
 var intro;
