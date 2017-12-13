@@ -32,8 +32,12 @@ var psycologyTitle;
     var canvas1;
     var canvasDark;
     var bback;
+    var bback2;
+    var bback3;
+    var bback4;
 var i=0;
 var darken = false;
+
 
 
  function preload(){
@@ -46,7 +50,33 @@ var darken = false;
 
 function setup(){
   home();
-  buttonWorks();
+  movie = createButton("video game");
+  movie.position(windowWidth*0.1, 730);
+  movie.mouseClicked(movies);
+
+  travel = createButton("travel");
+  travel.position(windowWidth*0.35, 730);
+  travel.mouseClicked(travels);
+  travel.hide();
+
+  science = createButton("science");
+  science.position(windowWidth*0.55, 730);
+  science.mouseClicked(science1);
+  science.hide();
+
+  therapy = createButton("therapy");
+  therapy.position(windowWidth*0.75, 730);
+  therapy.mouseClicked(therapy1);
+  therapy.hide();
+
+  puppyBut = createButton("click me");
+  puppyBut.position(131, 820);
+  puppyBut.mouseClicked(showPuppyStuff);
+
+  scaryBut = createButton("click me");
+  scaryBut.position(windowWidth*0.7, 820);
+  scaryBut.mouseClicked(showScaryStuff);
+
 }//end setup
 
 function draw(){
@@ -61,6 +91,7 @@ function home(){
   canvas.position(0, 82);
   canvas.style('z-index', '-2');
   background(113, 178, 186);
+  darken = false;
   intro = "To understand the psycological effects of virtual reality (VR), we have to know what VR is, and how it's used."
   fill(0);
   strokeWeight(0);
@@ -84,7 +115,6 @@ function home(){
       text(dreamPar, windowWidth*0.6+170, 110, 250);
       noFill();
       strokeWeight(2);
-      rect(windowWidth*.6+167, 95, 250, 75);
 
   //how
     howTitle = "How is VR Used?"
@@ -134,19 +164,7 @@ function home(){
       psycologyPar = "Because virtual reality feels so real, it triggers much more genuine emotions, which is not always a good thing. When are these psychological effects a bad thing? Well you explored the answer to that when you looked at the different scenarios. So back to our original question: is virtual reality psychologically unhealthy? It depends on what it’s used for. It can be a great thing for people suffering from various mental health issues. It also helps with science and the military, as well as various creative industries. However, if used in some types of entertainment (as you saw in the scenarios above) it can be quite destructive."
       text(psycologyPar, 50, 1090, 1000);
 
-}//end home end home end home end home end home end home
-
-
-function buttonWorks(){
-  //senarios
-  movie = basicbutton(windowWidth*0.1, 730, "movie/video game", movies);
-  travel = basicbutton(windowWidth*0.35, 730, "travel", travel);
-  science = basicbutton(windowWidth*0.55, 730, "science", science);
-  therapy = basicbutton(windowWidth*0.75, 730, "therapy", therapy);
-  //images
-  puppyBut = basicbutton(windowWidth*0.2, 820, "click me", showPuppyStuff);
-  scaryBut = basicbutton(windowWidth*0.7, 820, "click me", showScaryStuff);
-}
+}//end home end home end home end home end home end home //don't touch
 
 
 function basicbutton(x,y,name,funct){
@@ -159,8 +177,11 @@ function basicbutton(x,y,name,funct){
 
 //scenerios
 function movies(){
-  DarkCanvas();
   darken = true;
+  movie.hide();
+  puppyBut.hide();
+  scaryBut.hide();
+  DarkCanvas();
   fill(200);
   canvas1 = rect(120, 0,  windowWidth*0.8, 600);
   var par1 = "You’re super hyped about a new version of a video game titled ‘The Evil Within’. As an early Christmas present your cousin Willie gave you the new Samsung Odyssey VR headset. You’ve played ‘The Evil Within’ before, but not with VR."
@@ -174,30 +195,50 @@ function movies(){
   var par4 = "Scroll up"
   text(par4, 150, 590);
   bback = basicbutton(10, 10, 'back', back);
-  bback.style('z-index', '1');
-}//end movies
+}//end movies //works
 
+function back(){
+  home();
+  darken = false;
+  travel.show();
+  puppyBut.show();
+  scaryBut.show();
+}
 
-function travel(){
+function travels(){
+  travel.hide();
+  puppyBut.hide();
+  scaryBut.hide();
   DarkCanvas();
   darken = true;
   fill(200);
   canvas1 = rect(120, 0,  windowWidth*0.8, 600);
-  var par1 = "You work as a businessman for a company that you’ve put a lot of time and effort into. They recently ordered a now shipment of VR equipment so that you can virtually travel to meetings, instead of actually going. The company has gifted you with your own headset. You find this new technology very fascinating and you start spending a lot of time discovering its different features."
+  var parr1 = "You work as a businessman for a company that you’ve put a lot of time and effort into. They recently ordered a now shipment of VR equipment so that you can virtually travel to meetings, instead of actually going. The company has gifted you with your own headset. You find this new technology very fascinating and you start spending a lot of time discovering its different features."
   noStroke();
   fill(14, 72, 112);
-  text(par1, 150, 60, 400);
-  var par2 = "You find that you can not only travel to meetings, but to other places, like Hawaii or Paris. Because of the time this technology saves, your boss has dumped a bunch of extra work for you to do. This causes much stress, and you find it relaxing to take a break and virtually visit the Arc de Triomphe."
-  text(par2, 550, 220, 400);
-  var par3 = "You spend more and more time traveling to various places all over the world, so much so that you get behind on work. You start becoming detached from your friends, family, and most other parts of your life as your addiction becomes worse and worse."
-  text(par3, 150, 340, 400);
-  var par4 = "Scroll up"
-  text(par4, 150, 590);
-  bback = basicbutton(10, 10, 'back', back);
-  bback.style('z-index', '1');
+  text(parr1, 150, 60, 400);
+  var parr2 = "You find that you can not only travel to meetings, but to other places, like Hawaii or Paris. Because of the time this technology saves, your boss has dumped a bunch of extra work for you to do. This causes much stress, and you find it relaxing to take a break and virtually visit the Arc de Triomphe."
+  text(parr2, 550, 220, 400);
+  var parr3 = "You spend more and more time traveling to various places all over the world, so much so that you get behind on work. You start becoming detached from your friends, family, and most other parts of your life as your addiction becomes worse and worse."
+  text(parr3, 150, 340, 400);
+  var parr4 = "Scroll up"
+  text(parr4, 150, 590);
+  bback2 = basicbutton(10, 10, 'back', back1);
+} //text doesn't show up
+
+function back1(){
+  home();
+  darken = false;
+  travel.hide();
+  science.show();
+  puppyBut.show();
+  scaryBut.show();
 }
 
-function science(){
+function science1(){
+  science.hide();
+  puppyBut.hide();
+  scaryBut.hide();
   DarkCanvas();
   darken = true;
   fill(200);
@@ -212,11 +253,23 @@ function science(){
   text(par3, 150, 340, 400);
   var par4 = "Scroll up"
   text(par4, 150, 590);
-  bback = basicbutton(10, 10, 'back', back);
-  bback.style('z-index', '1');
+  bback3 = basicbutton(10, 10, 'back', back2);
 }
 
-function therapy(){
+function back2(){
+  home();
+  darken = false;
+  travel.hide();
+  science.hide();
+  therapy.show();
+  puppyBut.show();
+  scaryBut.show();
+}
+
+function therapy1(){
+  therapy.hide();
+  puppyBut.hide();
+  scaryBut.hide();
   DarkCanvas();
   darken = true;
   fill(200);
@@ -231,8 +284,17 @@ function therapy(){
   text(par3, 150, 340, 400);
   var par4 = "Scroll up"
   text(par4, 150, 590);
-  bback = basicbutton(10, 10, 'back', back);
-  bback.style('z-index', '1');
+  bback4 = basicbutton(10, 10, 'back', back3); //works
+}
+
+function back3(){
+  home();
+  darken = false;
+  travel.hide();
+  science.hide();
+  therapy.hide();
+  puppyBut.show();
+  scaryBut.show();
 }
 
 function DarkCanvas(){
@@ -242,14 +304,8 @@ function DarkCanvas(){
 }
 
 
-function back(){
-  home();
-  darken = false;
-}
-
-
-
 function showPuppyStuff(){
+  puppyBut.hide();
   image(img1, 100, 720, img1.width/2, img1.height/2);
   puppyPar = "What emotions came up when you saw the puppy? Were you happy? Did you think it was cute? (If you didn’t, I don’t know what kind of person you are) Now imagine if you got to see the puppy playing, and even got to throw the ball for the puppy. Would that make you happier? If you got to play with this puppy in virtual reality, it would probably make you feel happier than you did by just looking at the picture (unless you are unfeeling demon who hates puppies for some reason)."
   strokeWeight(0);
@@ -258,12 +314,14 @@ function showPuppyStuff(){
 }
 
 function showScaryStuff(){
+  scaryBut.hide();
   image(img2, 700, 720, img2.width/1.5, img2.height/1.5);
   scaryPar = "What emotions came up when you saw the wolf-monster thing? Were you scared? On edge? Grossed out? Now imagine if you looked to the right and that thing was rushing toward you howling. Would that make you more terrified? If you saw that wolf-monster coming at you in virtual reality, you’d probably freak out, more so than you did by looking at the picture."
   strokeWeight(0);
   fill(0);
   text(scaryPar, 650, 910, 400);
 }
+
 
 
 function sleepingPerson(){
@@ -285,8 +343,6 @@ function sleepingPerson(){
   stroke(0);
   strokeWeight(3);
 }
-
-
 
 function animation(){
   strokeWeight(3);
@@ -315,4 +371,6 @@ function animation(){
     noStroke();
     rect(655-45, 82, 210, 110);
   }
+
+
 }
